@@ -1,9 +1,6 @@
 package racingcar.controller;
 
-import racingcar.domain.Car;
-import racingcar.domain.Cars;
-import racingcar.domain.Racing;
-import racingcar.domain.RacingResult;
+import racingcar.domain.*;
 import racingcar.view.InputView;
 import racingcar.view.ResultView;
 
@@ -18,8 +15,8 @@ public class RacingController {
 
         Cars cars = Cars.from(names);
 
-        Random random = new Random();
-        Racing racing = new Racing(cars, random);
+        MovingStrategy movingStrategy = new RandomMovingStrategy(new Random());
+        Racing racing = new Racing(cars, movingStrategy);
 
         for (int i = 0; i < roundNum; i++) {
             ResultView.roundStart(i + 1);

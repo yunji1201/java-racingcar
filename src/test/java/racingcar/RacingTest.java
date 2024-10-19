@@ -4,7 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.*;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -19,7 +18,7 @@ public class RacingTest {
         Cars cars = Cars.from(names);
 
         Random random = new Random();
-        Racing racing = new Racing(cars, random);
+        Racing racing = new Racing(cars, random, movingStrategy);
         List<RacingResult> results = racing.play();
 
         assertThat(results).hasSize(2);

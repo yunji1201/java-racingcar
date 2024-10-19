@@ -7,16 +7,15 @@ import java.util.Random;
 public class Racing {
 
     private final Cars cars;
-    private final Random random;
+    private final MovingStrategy movingStrategy;
 
-    public Racing(Cars cars, Random random) {
+    public Racing(Cars cars, MovingStrategy movingStrategy) {
         this.cars = cars;
-        this.random = random;
+        this.movingStrategy = movingStrategy;
     }
 
     public List<RacingResult> play() {
         List<RacingResult> racingResults = new ArrayList<>();
-        MovingStrategy movingStrategy = new RandomMovingStrategy(random);
 
         for (Car car : cars.getCars()) {
             car.move(movingStrategy);
